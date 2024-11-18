@@ -3,9 +3,11 @@ import { useState } from "react";
 function MyTitleForm() {
 	const [title, setTitle] = useState("J'affiche ici mon texte");
 
-	// Merci à l'ia qui m'a permis de corriger cette erreur de type 'any' lorsque j'utilise seulement event
 	const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const newTitle = event.target.value.split("").join("");
+		const newTitle = event.target.value
+			.split("")
+			.filter((char) => char !== "*")
+			.join("");
 		setTitle(newTitle);
 	};
 
