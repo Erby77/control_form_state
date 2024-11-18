@@ -1,26 +1,18 @@
 import { useState } from "react";
 
 function MyTitleForm() {
-	const [title, setTitle] = useState("J'affiche mon titre");
+	const [title, setTitle] = useState("J'affiche ici mon texte");
 
 	const handleTitleChange = (event) => {
-		const newTitle = event.target.value
-			.split("")
-			.filter((char) => !char.includes("*"))
-			.join("");
+		const newTitle = event.target.value.split("").join("");
 		setTitle(newTitle);
 	};
 
 	return (
 		<header>
 			<h1>{title}</h1>
-			<label htmlFor="title">Title : </label>
-			<input
-				id="title"
-				type="text"
-				value={title}
-				onChange={handleTitleChange}
-			/>
+			<label htmlFor="text">Entrer son texte : </label>
+			<input type="sting" value={title} onChange={handleTitleChange} />
 		</header>
 	);
 }
